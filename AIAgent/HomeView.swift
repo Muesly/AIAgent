@@ -18,14 +18,12 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                        ForEach(prompts, id: \.self) { prompt in
-                            Text("\(prompt.title!, formatter: itemFormatter)")
-                        }
-                        Text("+ Add a Prompt")
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                    ForEach(prompts, id: \.self) { prompt in
+                        PromptCellView(title: prompt.title!)
                     }
+                    PromptCellView(title: "+ Add a Prompt")
                 }
             }
             .navigationTitle("Prompts")
@@ -50,7 +48,7 @@ struct HomeView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { prompts[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -64,12 +62,23 @@ struct HomeView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+struct PromptCellView: View {
+    let title: String
+
+    var body: some View {
+        Button {
+
+        } label: {
+            Text("\(title)")
+                .foregroundColor(.white)
+                .frame(height: 140)
+        }
+        .frame(maxWidth: .infinity)
+        .background(.purple)
+        .cornerRadius(10)
+        .padding()
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

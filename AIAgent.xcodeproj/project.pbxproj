@@ -14,19 +14,11 @@
 		EA0721B82A102CE500C66CD5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721B72A102CE500C66CD5 /* Persistence.swift */; };
 		EA0721BB2A102CE500C66CD5 /* AIAgent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA0721B92A102CE500C66CD5 /* AIAgent.xcdatamodeld */; };
 		EA0721C52A102CE500C66CD5 /* AIAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721C42A102CE500C66CD5 /* AIAgentTests.swift */; };
-		EA0721CF2A102CE500C66CD5 /* AIAgentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721CE2A102CE500C66CD5 /* AIAgentUITests.swift */; };
-		EA0721D12A102CE500C66CD5 /* AIAgentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721D02A102CE500C66CD5 /* AIAgentUITestsLaunchTests.swift */; };
+		EA0721E42A10379F00C66CD5 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = EA0721E32A10379F00C66CD5 /* ViewInspector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EA0721C12A102CE500C66CD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EA0721A32A102CE300C66CD5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EA0721AA2A102CE300C66CD5;
-			remoteInfo = AIAgent;
-		};
-		EA0721CB2A102CE500C66CD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EA0721A32A102CE300C66CD5 /* Project object */;
 			proxyType = 1;
@@ -45,9 +37,6 @@
 		EA0721BA2A102CE500C66CD5 /* AIAgent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AIAgent.xcdatamodel; sourceTree = "<group>"; };
 		EA0721C02A102CE500C66CD5 /* AIAgentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0721C42A102CE500C66CD5 /* AIAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAgentTests.swift; sourceTree = "<group>"; };
-		EA0721CA2A102CE500C66CD5 /* AIAgentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIAgentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA0721CE2A102CE500C66CD5 /* AIAgentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAgentUITests.swift; sourceTree = "<group>"; };
-		EA0721D02A102CE500C66CD5 /* AIAgentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAgentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA0721C72A102CE500C66CD5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				EA0721E42A10379F00C66CD5 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,8 +63,8 @@
 			children = (
 				EA0721AD2A102CE300C66CD5 /* AIAgent */,
 				EA0721C32A102CE500C66CD5 /* AIAgentTests */,
-				EA0721CD2A102CE500C66CD5 /* AIAgentUITests */,
 				EA0721AC2A102CE300C66CD5 /* Products */,
+				EA0721E22A10379F00C66CD5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,7 +73,6 @@
 			children = (
 				EA0721AB2A102CE300C66CD5 /* AIAgent.app */,
 				EA0721C02A102CE500C66CD5 /* AIAgentTests.xctest */,
-				EA0721CA2A102CE500C66CD5 /* AIAgentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,15 +105,6 @@
 			path = AIAgentTests;
 			sourceTree = "<group>";
 		};
-		EA0721CD2A102CE500C66CD5 /* AIAgentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EA0721CE2A102CE500C66CD5 /* AIAgentUITests.swift */,
-				EA0721D02A102CE500C66CD5 /* AIAgentUITestsLaunchTests.swift */,
-			);
-			path = AIAgentUITests;
-			sourceTree = "<group>";
-		};
 		EA0721DD2A10329B00C66CD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +120,13 @@
 				EA0721B22A102CE500C66CD5 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EA0721E22A10379F00C66CD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +145,8 @@
 			dependencies = (
 			);
 			name = AIAgent;
+			packageProductDependencies = (
+			);
 			productName = AIAgent;
 			productReference = EA0721AB2A102CE300C66CD5 /* AIAgent.app */;
 			productType = "com.apple.product-type.application";
@@ -183,27 +165,12 @@
 				EA0721C22A102CE500C66CD5 /* PBXTargetDependency */,
 			);
 			name = AIAgentTests;
+			packageProductDependencies = (
+				EA0721E32A10379F00C66CD5 /* ViewInspector */,
+			);
 			productName = AIAgentTests;
 			productReference = EA0721C02A102CE500C66CD5 /* AIAgentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EA0721C92A102CE500C66CD5 /* AIAgentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EA0721DA2A102CE500C66CD5 /* Build configuration list for PBXNativeTarget "AIAgentUITests" */;
-			buildPhases = (
-				EA0721C62A102CE500C66CD5 /* Sources */,
-				EA0721C72A102CE500C66CD5 /* Frameworks */,
-				EA0721C82A102CE500C66CD5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EA0721CC2A102CE500C66CD5 /* PBXTargetDependency */,
-			);
-			name = AIAgentUITests;
-			productName = AIAgentUITests;
-			productReference = EA0721CA2A102CE500C66CD5 /* AIAgentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -222,10 +189,6 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = EA0721AA2A102CE300C66CD5;
 					};
-					EA0721C92A102CE500C66CD5 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = EA0721AA2A102CE300C66CD5;
-					};
 				};
 			};
 			buildConfigurationList = EA0721A62A102CE300C66CD5 /* Build configuration list for PBXProject "AIAgent" */;
@@ -237,13 +200,15 @@
 				Base,
 			);
 			mainGroup = EA0721A22A102CE300C66CD5;
+			packageReferences = (
+				EA0721DF2A10362400C66CD5 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = EA0721AC2A102CE300C66CD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EA0721AA2A102CE300C66CD5 /* AIAgent */,
 				EA0721BF2A102CE500C66CD5 /* AIAgentTests */,
-				EA0721C92A102CE500C66CD5 /* AIAgentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,13 +224,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EA0721BE2A102CE500C66CD5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA0721C82A102CE500C66CD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,15 +252,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA0721C62A102CE500C66CD5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EA0721D12A102CE500C66CD5 /* AIAgentUITestsLaunchTests.swift in Sources */,
-				EA0721CF2A102CE500C66CD5 /* AIAgentUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -310,11 +259,6 @@
 			isa = PBXTargetDependency;
 			target = EA0721AA2A102CE300C66CD5 /* AIAgent */;
 			targetProxy = EA0721C12A102CE500C66CD5 /* PBXContainerItemProxy */;
-		};
-		EA0721CC2A102CE500C66CD5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EA0721AA2A102CE300C66CD5 /* AIAgent */;
-			targetProxy = EA0721CB2A102CE500C66CD5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -531,42 +475,6 @@
 			};
 			name = Release;
 		};
-		EA0721DB2A102CE500C66CD5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3NT7YH4NA6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyshort.recipes.AIAgentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AIAgent;
-			};
-			name = Debug;
-		};
-		EA0721DC2A102CE500C66CD5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3NT7YH4NA6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyshort.recipes.AIAgentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AIAgent;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -597,16 +505,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA0721DA2A102CE500C66CD5 /* Build configuration list for PBXNativeTarget "AIAgentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EA0721DB2A102CE500C66CD5 /* Debug */,
-				EA0721DC2A102CE500C66CD5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EA0721DF2A10362400C66CD5 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EA0721E32A10379F00C66CD5 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA0721DF2A10362400C66CD5 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EA0721B92A102CE500C66CD5 /* AIAgent.xcdatamodeld */ = {
