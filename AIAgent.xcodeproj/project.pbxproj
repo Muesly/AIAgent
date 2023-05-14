@@ -13,7 +13,7 @@
 		EA0721B62A102CE500C66CD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0721B52A102CE500C66CD5 /* Preview Assets.xcassets */; };
 		EA0721B82A102CE500C66CD5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721B72A102CE500C66CD5 /* Persistence.swift */; };
 		EA0721BB2A102CE500C66CD5 /* AIAgent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA0721B92A102CE500C66CD5 /* AIAgent.xcdatamodeld */; };
-		EA0721C52A102CE500C66CD5 /* AIAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721C42A102CE500C66CD5 /* AIAgentTests.swift */; };
+		EA0721C52A102CE500C66CD5 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721C42A102CE500C66CD5 /* HomeViewTests.swift */; };
 		EA0721E42A10379F00C66CD5 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = EA0721E32A10379F00C66CD5 /* ViewInspector */; };
 		EA0721E82A103BBA00C66CD5 /* Inspectable+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721E72A103BBA00C66CD5 /* Inspectable+Model.swift */; };
 		EA0721EA2A103D3800C66CD5 /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721E92A103D3800C66CD5 /* Inspection.swift */; };
@@ -22,6 +22,8 @@
 		EA0721F02A104FB200C66CD5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721EF2A104FB200C66CD5 /* ImagePickerView.swift */; };
 		EA0721F22A104FDB00C66CD5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721F12A104FDB00C66CD5 /* ImagePicker.swift */; };
 		EA0721F42A11359800C66CD5 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721F32A11359800C66CD5 /* Prompt.swift */; };
+		EA0721F62A11619800C66CD5 /* PromptCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721F52A11619800C66CD5 /* PromptCellView.swift */; };
+		EA0721F82A1161F600C66CD5 /* EditPromptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0721F72A1161F600C66CD5 /* EditPromptViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,7 @@
 		EA0721B72A102CE500C66CD5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EA0721BA2A102CE500C66CD5 /* AIAgent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AIAgent.xcdatamodel; sourceTree = "<group>"; };
 		EA0721C02A102CE500C66CD5 /* AIAgentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA0721C42A102CE500C66CD5 /* AIAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAgentTests.swift; sourceTree = "<group>"; };
+		EA0721C42A102CE500C66CD5 /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
 		EA0721E72A103BBA00C66CD5 /* Inspectable+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inspectable+Model.swift"; sourceTree = "<group>"; };
 		EA0721E92A103D3800C66CD5 /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		EA0721EB2A10476A00C66CD5 /* EditPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromptView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		EA0721EF2A104FB200C66CD5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		EA0721F12A104FDB00C66CD5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EA0721F32A11359800C66CD5 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		EA0721F52A11619800C66CD5 /* PromptCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptCellView.swift; sourceTree = "<group>"; };
+		EA0721F72A1161F600C66CD5 /* EditPromptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromptViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				EA0721AE2A102CE300C66CD5 /* AIAgentApp.swift */,
-				EA0721EB2A10476A00C66CD5 /* EditPromptView.swift */,
 				EA0721B02A102CE300C66CD5 /* HomeView.swift */,
+				EA0721F52A11619800C66CD5 /* PromptCellView.swift */,
+				EA0721EB2A10476A00C66CD5 /* EditPromptView.swift */,
+				EA0721F72A1161F600C66CD5 /* EditPromptViewModel.swift */,
 				EA0721F12A104FDB00C66CD5 /* ImagePicker.swift */,
 				EA0721EF2A104FB200C66CD5 /* ImagePickerView.swift */,
 				EA0721E92A103D3800C66CD5 /* Inspection.swift */,
@@ -118,7 +124,7 @@
 		EA0721C32A102CE500C66CD5 /* AIAgentTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA0721C42A102CE500C66CD5 /* AIAgentTests.swift */,
+				EA0721C42A102CE500C66CD5 /* HomeViewTests.swift */,
 				EA0721ED2A1048D600C66CD5 /* EditPromptViewTests.swift */,
 				EA0721E72A103BBA00C66CD5 /* Inspectable+Model.swift */,
 			);
@@ -262,11 +268,13 @@
 				EA0721BB2A102CE500C66CD5 /* AIAgent.xcdatamodeld in Sources */,
 				EA0721EC2A10476A00C66CD5 /* EditPromptView.swift in Sources */,
 				EA0721B12A102CE300C66CD5 /* HomeView.swift in Sources */,
+				EA0721F62A11619800C66CD5 /* PromptCellView.swift in Sources */,
 				EA0721F02A104FB200C66CD5 /* ImagePickerView.swift in Sources */,
 				EA0721F22A104FDB00C66CD5 /* ImagePicker.swift in Sources */,
 				EA0721EA2A103D3800C66CD5 /* Inspection.swift in Sources */,
 				EA0721F42A11359800C66CD5 /* Prompt.swift in Sources */,
 				EA0721AF2A102CE300C66CD5 /* AIAgentApp.swift in Sources */,
+				EA0721F82A1161F600C66CD5 /* EditPromptViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0721C52A102CE500C66CD5 /* AIAgentTests.swift in Sources */,
+				EA0721C52A102CE500C66CD5 /* HomeViewTests.swift in Sources */,
 				EA0721E82A103BBA00C66CD5 /* Inspectable+Model.swift in Sources */,
 				EA0721EE2A1048D600C66CD5 /* EditPromptViewTests.swift in Sources */,
 			);

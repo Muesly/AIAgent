@@ -4,6 +4,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Prompt" representedClassName="Prompt" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" attributeType="Binary"/>
+        <attribute name="text" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
     </entity>
 </model>
