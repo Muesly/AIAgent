@@ -13,6 +13,7 @@ struct HomeView: View {
     internal let inspection = Inspection<Self>()
 
     @State var promptToEdit: Prompt?
+    @State var promptToRun: Prompt?
     @State var isShowingAddPromptView: Bool = false
 
     @FetchRequest(
@@ -25,12 +26,15 @@ struct HomeView: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                     ForEach(prompts, id: \.self) { prompt in
-                        PromptCellView(title: prompt.title!, image: prompt.image) {
-                            self.promptToEdit = prompt
-                        }
+                        PromptCellView(title: prompt.title!,
+                                       image: prompt.image, onEditTap: {
+                            promptToEdit = prompt
+                        }, onRunTap: {
+                            promptToRun = prompt
+                        })
                     }
-                    PromptCellView(title: "+ Add a Prompt", image: nil) {
-                        self.isShowingAddPromptView = true
+                    AddPromptCellView(title: "+ Add a Prompt") {
+                        isShowingAddPromptView = true
                     }
                 }
                 .padding()
@@ -38,6 +42,9 @@ struct HomeView: View {
             .navigationTitle("Prompts")
             .sheet(item: $promptToEdit) { prompt in
                 EditPromptView(prompt: prompt)
+            }
+            .sheet(item: $promptToRun) { prompt in
+                RunPromptView(prompt: prompt)
             }
             .sheet(isPresented: $isShowingAddPromptView) {
                 EditPromptView(prompt: nil)

@@ -23,11 +23,20 @@ struct ImagePickerView: View {
                     actionSheetShown = true
                 }
             } label: {
-                Image(uiImage: image ?? UIImage(systemName: "photo")!)
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .aspectRatio(contentMode: .fill)
-                    .cornerRadius(10)
+                if let image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .clipped()
+                        .cornerRadius(10)
+                } else {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(10)
+                        .foregroundColor(Color("backgroundPrimary"))
+                }
             }
         }
         .confirmationDialog("Select an option", isPresented: $actionSheetShown, titleVisibility: .hidden) {
