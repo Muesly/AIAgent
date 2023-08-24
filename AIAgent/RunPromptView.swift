@@ -10,91 +10,112 @@ import Foundation
 import SwiftUI
 
 struct RunPromptView: View {
+    @Namespace var responseID
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: RunPromptViewModel
     @State var loading: Bool = false
     @State var showingError: Bool = false
-    @State var reply: String = ""
     @State var height: CGFloat = 50
+    @State var responseReady: Bool = false
+
     init(prompt: Prompt?) {
         viewModel = RunPromptViewModel(prompt: prompt)
     }
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
+            ScrollViewReader { proxy in
+                ScrollView {
                     VStack {
-                        ZStack(alignment: .leading) {
-                            Text(viewModel.text).foregroundColor(.clear).padding(6)
-                            TextEditor(text: $viewModel.text)
-                        }
-                        .cornerRadius(10)
-                        .padding(5)
-                    }
-                    .padding(5)
-                    .background(Color("backgroundSecondary"))
-                    Button {
-                        loading = true
-                        Task {
-                            do {
-                                reply = try await viewModel.generate(promptText: viewModel.text)
-                                loading = false
-                            } catch {
-                                showingError = true
-                            }
-                        }
-                    } label: {
-                        if loading {
-                            ProgressView()
-                        } else {
-                            Text("Run Prompt")
-                        }
-                    }.buttonStyle(.borderedProminent)
-                        .padding(5)
-
-                    if !reply.isEmpty {
                         VStack {
-                            Text(reply)
-                                .textSelection(.enabled)
-                            HStack {
-                                Spacer()
-                                Button {
-                                    UIPasteboard.general.string = reply
-                                } label: {
-                                    Image("doc.on.doc")
-                                        .foregroundColor(.white)
-                                }
-                                .frame(width: 40)
+                            ZStack(alignment: .leading) {
+                                Text(viewModel.text).foregroundColor(.clear).padding(6)
+                                TextEditor(text: $viewModel.text)
                             }
-                            Button {
-                                reply = ""
-                                viewModel.text = ""
-                            } label: {
-                                Text("Continue")
-                            }.padding(5)
+                            .cornerRadius(10)
+                            .padding(5)
+                        }
+                        .padding(5)
+                        .background(Color("backgroundSecondary"))
+                        Button {
+                            viewModel.text = ""
+                        } label: {
+                            Text("Clear")
+                        }.padding(5)
+                        Button {
+                            loading = true
+                            Task {
+                                do {
+                                    responseReady = try await viewModel.generate()
+                                } catch {
+                                    showingError = true
+                                }
+                                loading = false
+                            }
+                        } label: {
+                            if loading {
+                                ProgressView()
+                            } else {
+                                Text("Run Prompt")
+                            }
+                        }.buttonStyle(.borderedProminent)
+                            .padding(5)
+
+                        if responseReady {
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    Text(viewModel.tokensStats)
+                                        .foregroundColor(Color("foregroundSecondary"))
+                                        .font(.system(size: 12))
+                                        .padding(.bottom, 5)
+                                    Spacer()
+                                }
+                                Text(viewModel.fullResponse)
+                                    .textSelection(.enabled)
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        UIPasteboard.general.string = viewModel.fullResponse
+                                    } label: {
+                                        Image(systemName: "doc.on.doc")
+                                            .padding()
+                                    }
+                                    .id(responseID)
+                                    .frame(width: 40)
+                                    Spacer()
+                                }
+                            }
+                        }
+                        Spacer()
+                    }
+                    .onChange(of: loading) { loading in
+                        if !loading && viewModel.shouldScroll {
+                            withAnimation {
+                                proxy.scrollTo(responseID)
+                            }
                         }
                     }
-                    Spacer()
-                }
-                .padding()
-                .navigationTitle($viewModel.title)
-                .toolbar {
-                    ToolbarItem(placement: .automatic) {
-                        Button("Close") {
-                            dismiss()
+                    .padding()
+                    .navigationTitle($viewModel.title)
+                    .toolbar {
+                        ToolbarItem(placement: .automatic) {
+                            Button("Close") {
+                                dismiss()
+                            }
                         }
                     }
-                }
-                .alert("Failed to receive a reply",
-                       isPresented: $showingError) {
-                    Button("OK", role: .cancel) {}
+                    .alert("Failed to receive a reply",
+                           isPresented: $showingError) {
+                        Button("OK", role: .cancel) {}
+                    }
                 }
             }
         }
     }
 }
+
 
 struct Previews_RunPromptView_Previews: PreviewProvider {
     static var previews: some View {

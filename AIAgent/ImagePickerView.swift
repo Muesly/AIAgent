@@ -35,7 +35,7 @@ struct ImagePickerView: View {
                         .resizable()
                         .frame(width: 100, height: 100)
                         .cornerRadius(10)
-                        .foregroundColor(Color("backgroundPrimary"))
+                        .foregroundColor(Color("backgroundSecondary"))
                 }
             }
         }

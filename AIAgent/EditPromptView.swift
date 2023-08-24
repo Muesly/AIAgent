@@ -18,6 +18,14 @@ struct EditPromptView: View {
         viewModel = EditPromptViewModel(prompt: prompt)
     }
 
+    var numberFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.zeroSymbol = ""
+        formatter.allowsFloats = true
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -36,7 +44,23 @@ struct EditPromptView: View {
                         TextEditor(text: $viewModel.text)
                             .lineLimit(20)
                     }
+                    Section(header: Text("Temperature")) {
+                        TextField("0.5", value: $viewModel.temperature, formatter: numberFormatter)
+                            .keyboardType(.numberPad)
+                    }
+                    Section(header: Text("Top_P")) {
+                        TextField("0.5", value: $viewModel.topP, formatter: numberFormatter)
+                            .keyboardType(.numberPad)
+                    }
                 }
+                VStack(alignment: .center) {
+                    Button {
+                        viewModel.deletePrompt(viewContext: viewContext)
+                        dismiss()
+                    } label: {
+                        Text("Delete Prompt")
+                    }.foregroundColor(.red)
+                }.frame(maxWidth: .infinity)
             }
             .padding()
             .navigationTitle("Add a Prompt")
